@@ -149,16 +149,16 @@ public class IHM extends JFrame {
 						if (s.getControleur().getElement() instanceof Item)
 						{
 							//construis un oval aux coordonnes cx,cy de taille 8 x 8
-							char[] o={'☆'};
+							char[] o={'o'};
 							g.drawChars(o,0,o.length, cx, cy);
 						}
 						else
 						{
-							char[] h = {'▣'};
-							char[] m = {'＄'};
-							char[] v = {'➳'};
-							char[] n = {'☺'};
-							char[] gu = {'⚔'};
+							char[] h = {'h'};
+							char[] m = {'m'};
+							char[] v = {'v'};
+							char[] n = {'n'};
+							char[] gu = {'g'};
 							if(s.getControleur().getElement() instanceof Hodor)
 								g.drawChars(h, 0, h.length, cx, cy);
 							else if(s.getControleur().getElement() instanceof Marchand)
@@ -179,7 +179,7 @@ public class IHM extends JFrame {
 						String bVie = "";
 						
 						for (int i = 0; i < life/10 ;i++)
-							bVie=bVie.concat("█");
+							bVie=bVie.concat("â–ˆ");
 						//affiche un barre de vie
 						g.drawString(bVie,cx+10,cy-12);
 						

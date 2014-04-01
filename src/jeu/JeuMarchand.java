@@ -1,13 +1,13 @@
+package jeu;
 import individu.Combattant;
-import individu.classe.Voleur;
-
+import individu.classe.Marchand;
 import java.rmi.RemoteException;
 import java.util.Random;
 
 import controle.Console;
 
 
-public class JeuVoleur {
+public class JeuMarchand {
 
 	/**
 	 * @param args
@@ -18,9 +18,9 @@ public class JeuVoleur {
 		int r1 = new Random().nextInt(100);
 		int r2 = new Random().nextInt(100);
 
-		Combattant voleur = new Voleur("Voleur");
+		Combattant marchand = new Marchand("Marchand");
 
-		new Console(voleur, r1, r2);
+		new Console(marchand, r1, r2);
 	}
 
 }

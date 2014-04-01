@@ -1,12 +1,13 @@
+package jeu;
 import individu.Combattant;
-import individu.classe.Normal;
+import individu.classe.Guerrier;
 import java.rmi.RemoteException;
 import java.util.Random;
 
 import controle.Console;
 
 
-public class JeuNormal {
+public class JeuGuerrier {
 
 	/**
 	 * @param args
@@ -17,9 +18,9 @@ public class JeuNormal {
 		int r1 = new Random().nextInt(100);
 		int r2 = new Random().nextInt(100);
 
-		Combattant normal = new Normal("Normal");
+		Combattant guerrier = new Guerrier("Guerrier");
 
-		new Console(normal, r1, r2);
+		new Console(guerrier, r1, r2);
 	}
 
 }

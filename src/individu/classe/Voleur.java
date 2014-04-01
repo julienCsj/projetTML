@@ -75,5 +75,4 @@ public class Voleur extends Combattant {
 
 		return resultat;
 	}
-
 }
