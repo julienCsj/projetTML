@@ -6,6 +6,7 @@ import java.util.Random;
 
 import jeu.TestServeur;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -75,9 +76,23 @@ public class TestDeplacement extends TestCase {
 			Item pomme = new Item("× A:"+r3+" B:"+r4+" E:"+r5+" V:"+r6+" S:"+r7, r3, r4, r5, r6, r7);
 			objet = new Console(pomme, r1+6, r2);
 			refObjet = objet.getVueElement().getRef();
+			
 		} catch (Exception e) {
 			fail();
 		} 
+		
+		
+		// Faire run() ls joueurs
+		try {
+			this.joueur1.run();
+			this.joueur2.run();
+			this.joueur3.run();
+			this.joueur4.run();
+			this.joueur5.run();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
  
 	@Ignore
@@ -89,13 +104,39 @@ public class TestDeplacement extends TestCase {
 		}
 	}
 	
+	
+	// Il faudra faire plusieurs fois ce test afin de
+	// tester toute la fonction seDeplacer
 	@Test
-	public void testDeplacement() throws RemoteException {
+	public void testSeDeplacer() throws RemoteException {
 		Point p = this.joueur1.getVueElement().getPoint();
-		System.out.println("Point 1 : "+p);
 		this.joueur1.seDirigerVers(0);
 		Point p2 = this.joueur1.getVueElement().getPoint();
-		System.out.println("Point 2 : "+p2);
 		this.assertFalse(p.equals(p2));
 	}
+	
+	@Test
+	public void testSeDeplacer2() throws RemoteException {
+		Point p = this.joueur1.getVueElement().getPoint();
+		this.joueur1.seDirigerVers(0);
+		this.joueur1.seDirigerVers(0);
+		Point p2 = this.joueur1.getVueElement().getPoint();
+		this.assertFalse(p.equals(p2));
+	}
+	
+	
+	@Test
+	public void testErrerChampDeBataille() throws RemoteException {
+		Point p = this.joueur1.getVueElement().getPoint();
+		this.joueur1.seDirigerVers(this.refJoueur4);
+		Point p2 = this.joueur1.getVueElement().getPoint();
+		this.assertFalse(p.equals(p2));
+	}
+	
+	/*public void testRammaserObjet() throws RemoteException {
+		this.joueur1.seDirigerVers(refObjet);
+		this.joueur1.ramasserObjet(objet);
+		
+		
+	}*/
 }
